@@ -12,3 +12,11 @@ svn export https://svn.webkit.org/repository/webkit/$SVN_URL/CMakeLists.txt $TAR
 
 mkdir -p $TARGET_DIR/icu
 curl "https://chromium.googlesource.com/chromium/deps/icu/+archive/${npm_package_config_chromiumICUCommit}.tar.gz" | tar xzf - -C $TARGET_DIR/icu
+
+if command -v sha256sum; then
+  sha256sum -c download.sum
+elif command -v gsha256sum; then
+  gsha256sum -c download.sum
+else
+  echo "unable to verify downloaded contents, missing [g]sha256sum"
+fi
