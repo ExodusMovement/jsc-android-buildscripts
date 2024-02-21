@@ -1,5 +1,5 @@
 {
-  "name": "jsc-android",
+  "name": "@exodus/jsc-android",
   "version": "294992.0.0",
   "description": "Pre-build version of JavaScriptCore to be used by React Native apps",
   "repository": {
