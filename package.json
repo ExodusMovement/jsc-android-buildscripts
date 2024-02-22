@@ -27,7 +27,10 @@
   },
   "config": {
     "webkitGTK": "2.36.3",
-    "chromiumICUCommit": "85814e1af52482199a13d284545623ffbc9eef83"
+    "webkitGTKIntegrity": "732fcf8c4ec644b8ed28b46ebbd7c1ebab9d9e0afea9bdf5e5d12786afc478d1",
+    "chromiumICUCommit": "85814e1af52482199a13d284545623ffbc9eef83",
+    "chromiumICUTreeIntegrity": "a53653bae0936e24c242ace33f1c303b5ffd2c7df60a22efc4ae7f97d8a649ae",
+    "chromiumICUFileIntegrity": "1d44649da1eb889f09fbacec2a956601be06dc8c4ed2335cdf72ba6bce18ebd8"
   },
   "devDependencies": {
     "commander": "^4.0.1",
