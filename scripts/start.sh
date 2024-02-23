@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/usr/bin/env bash -e
 
 export ANDROID_API_FOR_ABI_32=21
 export ANDROID_API_FOR_ABI_64=21

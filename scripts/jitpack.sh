@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/usr/bin/env bash -e
 
 rm -rf $PWD/artifacts
 mkdir -p $PWD/artifacts
