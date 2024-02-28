@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -euxo pipefail
 
 # mkdircd download directory before restricting shell access
 TARGET_DIR=$PWD/build/download
