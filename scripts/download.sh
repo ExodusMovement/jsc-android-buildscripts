@@ -35,7 +35,7 @@ ICU_FILE="${npm_package_config_chromiumICUCommit}.tar.gz"
 ICU_URL="https://chromium.googlesource.com/chromium/deps/icu/+archive/${ICU_FILE}"
 rm "$ICU_FILE" || true
 wget "${ICU_URL}"
-test "$(tar tf "${ICU_FILE}" | sort | "$SHA256SUM" | awk '{ print $1 }')" = "${npm_package_config_chromiumICUTreeIntegrity}"
+test "$(tar tf "${ICU_FILE}" | sort | "$SHA256SUM" | awk '{ print $1 }' | tee /dev/stderr)" = "${npm_package_config_chromiumICUTreeIntegrity}"
 rm -rf icu || true
 mkdir icu
 tar xf "${ICU_FILE}" -C icu
