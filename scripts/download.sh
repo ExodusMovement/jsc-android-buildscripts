@@ -20,14 +20,12 @@ else
   exit 1
 fi
 
-WEBKIT_FILE="webkitgtk-${npm_package_config_webkitGTK}.tar.xz"
-WEBKIT_URL="https://webkitgtk.org/releases/${WEBKIT_FILE}"
+WEBKIT_FILE="webkit.tar.gz"
+WEBKIT_URL="https://github.com/ExodusMovement/jsc-android-buildscripts/releases/download/${npm_package_config_webkitGTK}/${WEBKIT_FILE}"
 rm "$WEBKIT_FILE" || true
 wget "${WEBKIT_URL}"
 echo "${npm_package_config_webkitGTKIntegrity}  ${WEBKIT_FILE}" | "$SHA256SUM" -c
-tar xf "${WEBKIT_FILE}" "webkitgtk-${npm_package_config_webkitGTK}"
-rm -rf webkit || true
-mv "webkitgtk-${npm_package_config_webkitGTK}" webkit
+tar xf "${WEBKIT_FILE}" "webkit/"
 
 # NOTE: ICU tarballs are made on the fly and don't produce consistent hashes.
 # Verify the file tree, then verify the files.
@@ -35,8 +33,8 @@ ICU_FILE="${npm_package_config_chromiumICUCommit}.tar.gz"
 ICU_URL="https://chromium.googlesource.com/chromium/deps/icu/+archive/${ICU_FILE}"
 rm "$ICU_FILE" || true
 wget "${ICU_URL}"
-test "$(tar tf "${ICU_FILE}" | sort | "$SHA256SUM" | awk '{ print $1 }')" = "${npm_package_config_chromiumICUTreeIntegrity}"
+test "$(tar tf "${ICU_FILE}" | LC_ALL=C sort | "$SHA256SUM" | awk '{ print $1 }')" = "${npm_package_config_chromiumICUTreeIntegrity}"
 rm -rf icu || true
 mkdir icu
 tar xf "${ICU_FILE}" -C icu
-test "$(find icu -type f -exec "$SHA256SUM" {} + | sort | "$SHA256SUM" | awk '{ print $1 }')" = "${npm_package_config_chromiumICUFileIntegrity}"
+test "$(find icu -type f -exec "$SHA256SUM" {} + | LC_ALL=C sort | "$SHA256SUM" | awk '{ print $1 }')" = "${npm_package_config_chromiumICUFileIntegrity}"
