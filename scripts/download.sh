@@ -2,6 +2,9 @@
 
 set -euxo pipefail
 
+env
+fail
+
 # mkdircd download directory before restricting shell access
 TARGET_DIR=$PWD/build/download
 mkdir -p "${TARGET_DIR}"
