@@ -2,7 +2,6 @@ name: Build jsc-android and test
 
 on:
   push:
-    branches: [main]
   pull_request:
 
 jobs:
