@@ -2,9 +2,6 @@
 
 set -euxo pipefail
 
-env
-fail
-
 # mkdircd download directory before restricting shell access
 TARGET_DIR=$PWD/build/download
 mkdir -p "${TARGET_DIR}"
@@ -38,8 +35,8 @@ ICU_FILE="${npm_package_config_chromiumICUCommit}.tar.gz"
 ICU_URL="https://chromium.googlesource.com/chromium/deps/icu/+archive/${ICU_FILE}"
 rm "$ICU_FILE" || true
 wget "${ICU_URL}"
-test "$(tar tf "${ICU_FILE}" | sort | tee /dev/stderr | "$SHA256SUM" | awk '{ print $1 }' | tee /dev/stderr)" = "${npm_package_config_chromiumICUTreeIntegrity}"
+test "$(tar tf "${ICU_FILE}" | LC_ALL=C sort | tee /dev/stderr | "$SHA256SUM" | awk '{ print $1 }' | tee /dev/stderr)" = "${npm_package_config_chromiumICUTreeIntegrity}"
 rm -rf icu || true
 mkdir icu
 tar xf "${ICU_FILE}" -C icu
-test "$(find icu -type f -exec "$SHA256SUM" {} + | sort | "$SHA256SUM" | awk '{ print $1 }')" = "${npm_package_config_chromiumICUFileIntegrity}"
+test "$(find icu -type f -exec "$SHA256SUM" {} + | LC_ALL=C sort | "$SHA256SUM" | awk '{ print $1 }')" = "${npm_package_config_chromiumICUFileIntegrity}"
