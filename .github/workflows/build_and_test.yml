@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - name: Free Disk Space
-    - shell: bash
+      shell: bash
       run: |
         df -h /
         rm -rf /host/*
