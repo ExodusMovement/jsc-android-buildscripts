@@ -22,6 +22,7 @@ jobs:
 
 
   build:
+    needs: free-disk-space
     runs-on: ubuntu-latest
     container: reactnativecommunity/react-native-android:5.4
 
