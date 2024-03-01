@@ -20,7 +20,10 @@ jobs:
       shell: bash
       run: |
         df -h /
-        rm -rf /host/*
+        rm -rf /host/android/* || true
+        rm -rf /host/dotnet/* || true
+        rm -rf /host/haskell/ghc/* || true
+        rm -rf /host/haskell/ghcup/* || true
         df -h /
 
     - uses: actions/checkout@v1
