@@ -37,4 +37,4 @@ test "$(tar tf "${ICU_FILE}" | LC_ALL=C sort | "$SHA256SUM" | awk '{ print $1 }'
 rm -rf icu || true
 mkdir icu
 tar xf "${ICU_FILE}" -C icu
-test "$(find icu -type f -exec "$SHA256SUM" {} + | LC_ALL=C sort | "$SHA256SUM" | awk '{ print $1 }')" = "${npm_package_config_chromiumICUFileIntegrity}"
+test "$(find icu -type f -exec "$SHA256SUM" -- {} + | LC_ALL=C sort | "$SHA256SUM" | awk '{ print $1 }')" = "${npm_package_config_chromiumICUFileIntegrity}"
