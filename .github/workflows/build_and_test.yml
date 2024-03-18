@@ -2,15 +2,30 @@ name: Build jsc-android and test
 
 on:
   push:
-    branches: [main]
   pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: reactnativecommunity/react-native-android:5.4
+    container:
+      image: reactnativecommunity/react-native-android:5.4
+      volumes:
+        - /usr/local/lib/android:/host/android
+        - /usr/share/dotnet:/host/dotnet
+        - /opt/ghc:/host/haskell/ghc
+        - /usr/local/.ghcup:/host/haskell/ghcup
 
     steps:
+    - name: Free Disk Space
+      shell: bash
+      run: |
+        df -h /
+        rm -rf /host/android/* || true
+        rm -rf /host/dotnet/* || true
+        rm -rf /host/haskell/ghc/* || true
+        rm -rf /host/haskell/ghcup/* || true
+        df -h /
+
     - uses: actions/checkout@v1
 
     - name: 🔨 Use JDK 11
@@ -22,7 +37,7 @@ jobs:
     - name: Install packages
       run: |
         apt-get update
-        apt-get install coreutils curl git subversion wget python3 ruby gperf -y
+        apt-get install coreutils curl git subversion wget python3 ruby gperf xz-utils -y
         wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
         echo 'export NVM_DIR="$HOME/.nvm"' >> "${HOME}/.bashrc"
         echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm' >> "${HOME}/.bashrc"

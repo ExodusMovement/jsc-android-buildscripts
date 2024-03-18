@@ -1,10 +1,10 @@
 {
   "name": "@exodus/jsc-android",
-  "version": "294992.0.0",
+  "version": "0.0.2",
   "description": "Pre-build version of JavaScriptCore to be used by React Native apps",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/react-native-community/jsc-android-buildscripts.git"
+    "url": "git+https://github.com/ExodusMovement/jsc-android-buildscripts.git"
   },
   "keywords": [
     "react-native",
@@ -13,9 +13,9 @@
   ],
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/react-native-community/jsc-android-buildscripts/issues"
+    "url": "https://github.com/ExodusMovement/jsc-android-buildscripts/issues"
   },
-  "homepage": "https://github.com/react-native-community/jsc-android-buildscripts#readme",
+  "homepage": "https://github.com/ExodusMovement/jsc-android-buildscripts#readme",
   "files": [
     "/dist"
   ],
@@ -27,9 +27,9 @@
   },
   "config": {
     "webkitGTK": "2.36.3",
-    "webkitGTKIntegrity": "732fcf8c4ec644b8ed28b46ebbd7c1ebab9d9e0afea9bdf5e5d12786afc478d1",
+    "webkitGTKIntegrity": "672c134d67c7a63df88b8e367669faab664d0e2717c21f51efb6224624af99cc",
     "chromiumICUCommit": "85814e1af52482199a13d284545623ffbc9eef83",
-    "chromiumICUTreeIntegrity": "a53653bae0936e24c242ace33f1c303b5ffd2c7df60a22efc4ae7f97d8a649ae",
+    "chromiumICUTreeIntegrity": "8a7f1142c6a26d5ddcbcba9cf4a95687bc6da200f38faa7954ebfb0942d7de2a",
     "chromiumICUFileIntegrity": "1d44649da1eb889f09fbacec2a956601be06dc8c4ed2335cdf72ba6bce18ebd8"
   },
   "devDependencies": {
