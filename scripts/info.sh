@@ -16,6 +16,6 @@ fi
 
 printf "\n\n\n\n\n\t\t\tRevision: \x1B[32m$REVISION\x1B[0m\n\n\n"
 printf "Config:\n$CONFIG\n\n"
-printf "Info:\n$INFO\n\n"
+# printf "Info:\n$INFO\n\n"
 # printf "AppleWebkit:\n$APPLE_VERSION\n\n"
 printf "Size:\n$SIZE\n\n"
