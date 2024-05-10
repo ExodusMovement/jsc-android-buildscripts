@@ -20,12 +20,8 @@ else
   exit 1
 fi
 
-WEBKIT_FILE="webkit.tar.gz"
-WEBKIT_URL="https://github.com/ExodusMovement/jsc-android-buildscripts/releases/download/${npm_package_config_webkitGTK}/${WEBKIT_FILE}"
-rm "$WEBKIT_FILE" || true
-wget "${WEBKIT_URL}"
-echo "${npm_package_config_webkitGTKIntegrity}  ${WEBKIT_FILE}" | "$SHA256SUM" -c
-tar xf "${WEBKIT_FILE}" "webkit/"
+git clone --branch $GIT_TAG https://github.com/WebKit/WebKit.git webkit/
+# TODO: check integrity
 
 # NOTE: ICU tarballs are made on the fly and don't produce consistent hashes.
 # Verify the file tree, then verify the files.
