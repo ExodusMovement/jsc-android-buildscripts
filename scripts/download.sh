@@ -20,6 +20,7 @@ else
   exit 1
 fi
 
+GIT_TAG="webkitgtk-${npm_package_config_webkitGTK}"
 git clone --branch $GIT_TAG https://github.com/WebKit/WebKit.git webkit/
 # TODO: check integrity
 
