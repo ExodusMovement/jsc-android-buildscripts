@@ -11,18 +11,16 @@
      \
 --- target-org/webkit/Source/bmalloc/libpas/src/libpas/pas_thread_local_cache.c	2022-07-10 22:34:50.000000000 +0800
 +++ target/webkit/Source/bmalloc/libpas/src/libpas/pas_thread_local_cache.c	2022-07-10 23:15:53.000000000 +0800
-@@ -201,9 +201,9 @@
-     else
-         pas_log("[%d] thread %p does not have id\n", getpid(), thread);
+@@ -214,9 +214,9 @@
  #endif
--    if (!pthread_getname_np(thread, thread_name, sizeof(thread_name)))
--        pas_log("[%d] thread %p has name %s\n", getpid(), (void*)thread, thread_name);
--    else
-+    // if (!pthread_getname_np(thread, thread_name, sizeof(thread_name)))
-+    //     pas_log("[%d] thread %p has name %s\n", getpid(), (void*)thread, thread_name);
-+    // else
-         pas_log("[%d] thread %p does not have name\n", getpid(), (void*)thread);
- }
+ #if PAS_PLATFORM(PLAYSTATION)
+     getname_result = pthread_get_name_np(thread, thread_name);
+ #else
+-    getname_result = pthread_getname_np(thread, thread_name, sizeof(thread_name));
++    getname_result = 1;
+ #endif
+     if (!getname_result)
+         pas_log("[%d] thread %p has name %s\n", getpid(), (void*)thread, thread_name);
  
 --- target-org/webkit/Source/cmake/OptionsCommon.cmake	2022-02-12 06:46:36.000000000 +0800
 +++ target/webkit/Source/cmake/OptionsCommon.cmake	2022-07-10 22:56:50.000000000 +0800
@@ -31,8 +29,10 @@
 +set(CMAKE_CXX_STANDARD 17)
  set(CMAKE_CXX_STANDARD_REQUIRED ON)
  set(CMAKE_CXX_EXTENSIONS OFF)
+ set(CMAKE_EXPERIMENTAL_CXX_MODULE_DYNDEP OFF)
  
  add_definitions(-DBUILDING_WITH_CMAKE=1)
+ add_definitions(-DBUILDING_WEBKIT=1)
  add_definitions(-DHAVE_CONFIG_H=1)
  add_definitions(-DPAS_BMALLOC=1)
 +add_definitions(-DHAVE_MISSING_STD_FILESYSTEM_PATH_CONSTRUCTOR=1)
