@@ -42,4 +42,18 @@
      list(APPEND WTF_SOURCES
          linux/CurrentProcessMemoryStatus.cpp
          linux/MemoryFootprintLinux.cpp
-
+--- target-org/webkit/Source/WTF/wtf/Compiler.h
++++ target/webkit/Source/WTF/wtf/Compiler.h
+@@ -320,12 +320,6 @@
+ 
+ /* MUST_TAIL_CALL */
+ 
+-#if !defined(MUST_TAIL_CALL) && defined(__cplusplus) && defined(__has_cpp_attribute)
+-#if __has_cpp_attribute(clang::musttail)
+-#define MUST_TAIL_CALL [[clang::musttail]]
+-#endif
+-#endif
+-
+ #if !defined(MUST_TAIL_CALL)
+ #define MUST_TAIL_CALL
+ #endif
