@@ -63,6 +63,7 @@ $TARGETDIR/webkit/Tools/Scripts/build-webkit \
   --no-xslt \
   --no-netscape-plugin-api \
   --no-tools \
+  --no-fatal-warnings \
   --cmakeargs="-DCMAKE_TOOLCHAIN_FILE=${ANDROID_NDK}/build/cmake/android.toolchain.cmake \
   -DANDROID_ABI=${JNI_ARCH} \
   -DANDROID_PLATFORM=${ANDROID_API} \
