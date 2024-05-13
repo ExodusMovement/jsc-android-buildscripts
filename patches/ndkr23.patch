@@ -25,8 +25,7 @@
 --- target-org/webkit/Source/cmake/OptionsCommon.cmake	2022-02-12 06:46:36.000000000 +0800
 +++ target/webkit/Source/cmake/OptionsCommon.cmake	2022-07-10 22:56:50.000000000 +0800
 @@ -1,10 +1,11 @@
--set(CMAKE_CXX_STANDARD 20)
-+set(CMAKE_CXX_STANDARD 17)
+ set(CMAKE_CXX_STANDARD 20)
  set(CMAKE_CXX_STANDARD_REQUIRED ON)
  set(CMAKE_CXX_EXTENSIONS OFF)
  set(CMAKE_EXPERIMENTAL_CXX_MODULE_DYNDEP OFF)
