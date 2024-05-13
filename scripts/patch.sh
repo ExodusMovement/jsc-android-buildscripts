@@ -16,10 +16,10 @@ JSC_PATCHSET=(
   "jsc_features.patch"
 
   # NDK r23 support and fix build errors
-  "ndkr23.patch"
+  # "ndkr23.patch"
 
   # NDK does not support backtrace and execinfo.h
-  "jsc_fix_build_error_execinfo.patch"
+  # "jsc_fix_build_error_execinfo.patch"
 
   # Fix build error which related to C++StringView
   "jsc_fix_build_error_stringview.patch"
@@ -28,7 +28,8 @@ JSC_PATCHSET=(
   "jsc_icu_integrate.patch"
 
   # Support getting correct locale setting in Android system
-  "jsc_locale_support.patch"
+  # TODO: fix me
+  # "jsc_locale_support.patch"
 
   # Will print current JSC version in adb log during initialization
   "jsc_startup_log_version.patch"

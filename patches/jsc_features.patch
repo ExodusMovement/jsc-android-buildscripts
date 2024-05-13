@@ -26,8 +26,8 @@
  if (WTF_CPU_ARM OR WTF_CPU_MIPS)
 --- target-org/webkit/Source/JavaScriptCore/CMakeLists.txt	2022-07-09 15:31:21.000000000 +0800
 +++ target/webkit/Source/JavaScriptCore/CMakeLists.txt	2022-07-09 15:31:50.000000000 +0800
-@@ -1564,4 +1565,4 @@
-         VERBATIM)
+@@ -1586,4 +1586,4 @@
+     add_dependencies(JavaScriptCoreSharedScripts JSCBuiltins)
  endif ()
  
 -add_subdirectory(shell)
