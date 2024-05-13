@@ -24,14 +24,7 @@
  
 --- target-org/webkit/Source/cmake/OptionsCommon.cmake	2022-02-12 06:46:36.000000000 +0800
 +++ target/webkit/Source/cmake/OptionsCommon.cmake	2022-07-10 22:56:50.000000000 +0800
-@@ -1,10 +1,11 @@
- set(CMAKE_CXX_STANDARD 20)
- set(CMAKE_CXX_STANDARD_REQUIRED ON)
- set(CMAKE_CXX_EXTENSIONS OFF)
- set(CMAKE_EXPERIMENTAL_CXX_MODULE_DYNDEP OFF)
- 
- add_definitions(-DBUILDING_WITH_CMAKE=1)
- add_definitions(-DBUILDING_WEBKIT=1)
+@@ -7,5 +7,6 @@
  add_definitions(-DHAVE_CONFIG_H=1)
  add_definitions(-DPAS_BMALLOC=1)
 +add_definitions(-DHAVE_MISSING_STD_FILESYSTEM_PATH_CONSTRUCTOR=1)
