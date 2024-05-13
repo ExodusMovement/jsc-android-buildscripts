@@ -21,7 +21,7 @@ else
 fi
 
 GIT_TAG="webkitgtk-${npm_package_config_webkitGTK}"
-git clone --branch $GIT_TAG https://github.com/WebKit/WebKit.git webkit/
+git clone --branch $GIT_TAG --single-branch https://github.com/WebKit/WebKit.git webkit/
 # TODO: check integrity
 
 # NOTE: ICU tarballs are made on the fly and don't produce consistent hashes.
