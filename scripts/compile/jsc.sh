@@ -60,6 +60,7 @@ $TARGETDIR/webkit/Tools/Scripts/build-webkit \
   --jit \
   "$SWITCH_BUILD_WEBKIT_OPTIONS_INTL" \
   --no-webassembly \
+  --sampling-profiler \
   --no-xslt \
   --no-netscape-plugin-api \
   --no-tools \
@@ -77,7 +78,7 @@ $TARGETDIR/webkit/Tools/Scripts/build-webkit \
   -DCMAKE_EXE_LINKER_FLAGS='${CMAKE_MODULE_LINKER_FLAGS} $CMAKE_LD_FLAGS' \
   -DCMAKE_VERBOSE_MAKEFILE=on \
   -DENABLE_API_TESTS=OFF \
-  -DENABLE_SAMPLING_PROFILER=OFF \
+  -DENABLE_SAMPLING_PROFILER=ON \
   -DENABLE_DFG_JIT=OFF \
   -DENABLE_FTL_JIT=OFF \
   -DUSE_SYSTEM_MALLOC=OFF \
