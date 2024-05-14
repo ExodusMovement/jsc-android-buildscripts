@@ -60,6 +60,7 @@ $TARGETDIR/webkit/Tools/Scripts/build-webkit \
   --jit \
   "$SWITCH_BUILD_WEBKIT_OPTIONS_INTL" \
   --no-webassembly \
+  --remote-inspector \
   --no-xslt \
   --no-netscape-plugin-api \
   --no-tools \
