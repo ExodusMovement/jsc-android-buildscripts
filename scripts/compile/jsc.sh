@@ -60,9 +60,11 @@ $TARGETDIR/webkit/Tools/Scripts/build-webkit \
   --jit \
   "$SWITCH_BUILD_WEBKIT_OPTIONS_INTL" \
   --no-webassembly \
+  --remote-inspector \
   --no-xslt \
   --no-netscape-plugin-api \
   --no-tools \
+  --no-fatal-warnings \
   --cmakeargs="-DCMAKE_TOOLCHAIN_FILE=${ANDROID_NDK}/build/cmake/android.toolchain.cmake \
   -DANDROID_ABI=${JNI_ARCH} \
   -DANDROID_PLATFORM=${ANDROID_API} \
@@ -78,9 +80,13 @@ $TARGETDIR/webkit/Tools/Scripts/build-webkit \
   -DCMAKE_VERBOSE_MAKEFILE=on \
   -DENABLE_API_TESTS=OFF \
   -DENABLE_SAMPLING_PROFILER=OFF \
-  -DENABLE_DFG_JIT=OFF \
+  -DENABLE_B3_JIT=OFF \
+  -DENABLE_DFG_JIT=ON \
   -DENABLE_FTL_JIT=OFF \
+  -DENABLE_WEBASSEMBLY_OMGJIT=OFF \
+  -DENABLE_WEBASSEMBLY_BBQJIT=OFF \
   -DUSE_SYSTEM_MALLOC=OFF \
+  -DUSE_INSPECTOR_SOCKET_SERVER=ON \
   -DJSC_VERSION=\"${JSC_VERSION}\" \
   $JSC_FEATURE_FLAGS \
   $BUILD_TYPE_FLAGS \
@@ -88,7 +94,8 @@ $TARGETDIR/webkit/Tools/Scripts/build-webkit \
 
 mkdir -p $INSTALL_UNSTRIPPED_DIR_I18N/$JNI_ARCH
 mkdir -p $INSTALL_DIR_I18N/$JNI_ARCH
-cp $TARGETDIR/webkit/WebKitBuild/$BUILD_TYPE/lib/libjsc.so $INSTALL_UNSTRIPPED_DIR_I18N/$JNI_ARCH
-cp $TARGETDIR/webkit/WebKitBuild/$BUILD_TYPE/lib/libjsc.so $INSTALL_DIR_I18N/$JNI_ARCH
+PORT_NAME="JSCOnly"
+cp $TARGETDIR/webkit/WebKitBuild/$PORT_NAME/$BUILD_TYPE/lib/libjsc.so $INSTALL_UNSTRIPPED_DIR_I18N/$JNI_ARCH
+cp $TARGETDIR/webkit/WebKitBuild/$PORT_NAME/$BUILD_TYPE/lib/libjsc.so $INSTALL_DIR_I18N/$JNI_ARCH
 $TOOLCHAIN_DIR/bin/llvm-strip $INSTALL_DIR_I18N/$JNI_ARCH/libjsc.so
-mv $TARGETDIR/webkit/WebKitBuild $TARGETDIR/webkit/${CROSS_COMPILE_PLATFORM}-${FLAVOR}
+mv $TARGETDIR/webkit/WebKitBuild/$PORT_NAME $TARGETDIR/webkit/${CROSS_COMPILE_PLATFORM}-${FLAVOR}
