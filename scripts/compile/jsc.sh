@@ -59,7 +59,7 @@ $TARGETDIR/webkit/Tools/Scripts/build-webkit \
   $BUILD_TYPE_CONFIG \
   --jit \
   "$SWITCH_BUILD_WEBKIT_OPTIONS_INTL" \
-  --no-webassembly \
+  --webassembly \
   --no-xslt \
   --no-netscape-plugin-api \
   --no-tools \
