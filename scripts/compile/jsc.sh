@@ -59,7 +59,7 @@ $TARGETDIR/webkit/Tools/Scripts/build-webkit \
   $BUILD_TYPE_CONFIG \
   --jit \
   "$SWITCH_BUILD_WEBKIT_OPTIONS_INTL" \
-  --webassembly \
+  --no-webassembly \
   --no-xslt \
   --no-netscape-plugin-api \
   --no-tools \
@@ -79,11 +79,11 @@ $TARGETDIR/webkit/Tools/Scripts/build-webkit \
   -DCMAKE_VERBOSE_MAKEFILE=on \
   -DENABLE_API_TESTS=OFF \
   -DENABLE_SAMPLING_PROFILER=OFF \
-  -DENABLE_B3_JIT=ON \
+  -DENABLE_B3_JIT=OFF \
   -DENABLE_DFG_JIT=ON \
-  -DENABLE_FTL_JIT=ON \
+  -DENABLE_FTL_JIT=OFF \
   -DENABLE_WEBASSEMBLY_OMGJIT=OFF \
-  -DENABLE_WEBASSEMBLY_BBQJIT=ON \
+  -DENABLE_WEBASSEMBLY_BBQJIT=OFF \
   -DUSE_SYSTEM_MALLOC=OFF \
   -DJSC_VERSION=\"${JSC_VERSION}\" \
   $JSC_FEATURE_FLAGS \
